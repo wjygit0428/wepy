@@ -22,15 +22,7 @@ function interactPublish() {
         choices: ['release', 'alpha', 'beta', 'custom']
       })
         .run()
-        .then(tag => {
-          if (tag === 'custom') {
-            return new Input({
-              message: 'Input custom tag'
-            }).run();
-          }
-          publishOpt.tag = tag;
-          return tag;
-        })
+        
         .then(tag => {
           let choices = [];
           choices = ['patch', 'minor', 'major'].map(v => {
